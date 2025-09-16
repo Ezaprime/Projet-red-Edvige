@@ -1,11 +1,11 @@
-package main
+package piscine
 
 import "fmt"
 
 func hasSpace(c *Character) bool {
 	return len(c.Inventory) < c.InventoryCap
 }
-func addInventory(c *Character, item string) bool {
+func AddInventory(c *Character, item string) bool {
 	if !hasSpace(c) {
 		fmt.Println("Sacoche pleine :", item)
 		return false
@@ -14,7 +14,7 @@ func addInventory(c *Character, item string) bool {
 	fmt.Println("Ajouté à la sacoche :", item)
 	return true
 }
-func removeInventoryAt(c *Character, index int) {
+func RemoveInventoryAt(c *Character, index int) {
 	if index < 0 || index >= len(c.Inventory) {
 		return
 	}

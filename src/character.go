@@ -1,4 +1,4 @@
-package main
+package piscine
 
 type Character struct {
 	Name              string
@@ -20,7 +20,7 @@ type Character struct {
 	StoryProgress     int
 }
 
-func initCharacter(name string, class string) Character {
+func InitCharacter(name string, class string) Character {
 	return Character{
 		Name:              name,
 		Class:             class,
