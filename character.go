@@ -350,83 +350,34 @@ func poisonPot(c *Character) {
 }
 
 func equipItem(c *Character, item string) {
-
-	if item == EquipCasqueNomade {
-
-		old := c.Equip.Head
-
+	var old string
+	switch item {
+	case EquipCasqueNomade:
+		old = c.Equip.Head
 		c.Equip.Head = EquipCasqueNomade
-
-		if old != "" {
-
-			if !addInventory(c, old) {
-
-				fmt.Println("Sacoche pleine, l'ancien équipement est perdu :", old)
-
-			}
-
-		}
-
-	} else if item == EquipKevlarNomade {
-
-		old := c.Equip.Torso
-
+	case EquipKevlarNomade:
+		old = c.Equip.Torso
 		c.Equip.Torso = EquipKevlarNomade
-
-		if old != "" {
-
-			if !addInventory(c, old) {
-
-				fmt.Println("Sacoche pleine, l'ancien équipement est perdu :", old)
-
-			}
-
-		}
-
-	} else if item == EquipBottesNomades {
-
-		old := c.Equip.Feet
-
+	case EquipBottesNomades:
+		old = c.Equip.Feet
 		c.Equip.Feet = EquipBottesNomades
-
-		if old != "" {
-
-			if !addInventory(c, old) {
-
-				fmt.Println("Sacoche pleine, l'ancien équipement est perdu :", old)
-
-			}
-
-		}
-
-	} else if item == WeaponPistol || item == WeaponSMG || item == WeaponKatana || item == WeaponPuff {
-
-		old := c.Equip.Weapon
-
+	case WeaponPistol, WeaponSMG, WeaponKatana, WeaponPuff:
+		old = c.Equip.Weapon
 		c.Equip.Weapon = item
-
-		if old != "" {
-
-			if !addInventory(c, old) {
-
-				fmt.Println("Sacoche pleine, l'ancienne arme est perdue :", old)
-
-			}
-
+	default:
+		// Item non équipable
+		return
+	}
+	if old != "" {
+		if !addInventory(c, old) {
+			fmt.Println("Sacoche pleine, l'ancien équipement est perdu :", old)
 		}
-
 	}
-
 	applyEquipBonuses(c)
-
 	fmt.Println("Équipement mis à jour. PV max recalculés :", c.HpMax)
-
 	if c.Hp > c.HpMax {
-
 		c.Hp = c.HpMax
-
 	}
-
 }
 
 func applyEquipBonuses(c *Character) {
