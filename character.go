@@ -1,4 +1,4 @@
-package main
+package piscine
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func initCharacter(name string, class string, level int, hpMax int, hp int, inv []string) Character {
+func InitCharacter(name string, class string, level int, hpMax int, hp int, inv []string) Character {
 
 	return Character{
 
@@ -51,7 +51,7 @@ func initCharacter(name string, class string, level int, hpMax int, hp int, inv 
 
 }
 
-func displayInfo(c Character) {
+func DisplayInfo(c Character) {
 
 	fmt.Println("=== Informations du personnage ===")
 
@@ -406,7 +406,7 @@ func applyEquipBonuses(c *Character) {
 
 }
 
-func accessInventory(c *Character) {
+func AccessInventory(c *Character) {
 
 	for {
 

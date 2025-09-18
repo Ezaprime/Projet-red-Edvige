@@ -1,8 +1,8 @@
-package main
+package piscine
 
 import "fmt"
 
-func forge(c *Character) {
+func Forge(c *Character) {
 
 	for {
 

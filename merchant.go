@@ -1,8 +1,8 @@
-package main
+package piscine
 
 import "fmt"
 
-func merchant(c *Character) {
+func Merchant(c *Character) {
 	for {
 		fmt.Println("=== Marchand : Mox ===")
 		fmt.Println("Crédits disponibles :", c.Money)

@@ -1,11 +1,11 @@
-package main
+package piscine
 
 import (
 	"fmt"
 	"time"
 )
 
-func initGoblin() Monster { return Monster{Name: "Sparring holo", HpMax: 40, Hp: 40, Attack: 5} }
+func InitGoblin() Monster { return Monster{Name: "Sparring holo", HpMax: 40, Hp: 40, Attack: 5} }
 func initMunicipale() Monster {
 	return Monster{Name: "Police municipale", HpMax: 35, Hp: 35, Attack: 6}
 }
@@ -15,7 +15,7 @@ func initMotards() Monster     { return Monster{Name: "Motards", HpMax: 85, Hp: 
 func initBAC() Monster         { return Monster{Name: "BAC", HpMax: 100, Hp: 100, Attack: 10} }
 func initBossFBI() Monster     { return Monster{Name: "FBI", HpMax: 220, Hp: 220, Attack: 12} }
 
-func enemyPattern(g *Monster, c *Character, turn int) {
+func EnemyPattern(g *Monster, c *Character, turn int) {
 	dmg := g.Attack
 	if turn%3 == 0 {
 		dmg = g.Attack * 2
@@ -195,7 +195,7 @@ func levelUp(c *Character) {
 	}
 }
 
-func trainingFight(c *Character) {
+func TrainingFight(c *Character) {
 	idx := c.StoryProgress - 1
 	if idx < 0 {
 		idx = 0
@@ -214,7 +214,7 @@ func trainingFight(c *Character) {
 		creditReward = 1
 	}
 
-	g := initGoblin()
+	g := InitGoblin()
 	c.Initiative = rollInitiative()
 	g.Initiative = rollInitiative()
 	playerFirst := c.Initiative >= g.Initiative
@@ -232,13 +232,13 @@ func trainingFight(c *Character) {
 				fmt.Println("Retour au menu.")
 				return
 			}
-			enemyPattern(&g, c, turn)
+			EnemyPattern(&g, c, turn)
 			if c.Hp <= 0 {
 				fmt.Println("Vous avez été mis K.O. Retour au menu.")
 				return
 			}
 		} else {
-			enemyPattern(&g, c, turn)
+			EnemyPattern(&g, c, turn)
 			if c.Hp <= 0 {
 				fmt.Println("Vous avez été mis K.O. Retour au menu.")
 				return
@@ -275,13 +275,13 @@ func fightGeneric(c *Character, m Monster, xpReward int, creditReward int) bool 
 				fmt.Printf("+%d crédits (total %d)\n", creditReward, c.Money)
 				return true
 			}
-			enemyPattern(&g, c, turn)
+			EnemyPattern(&g, c, turn)
 			if c.Hp <= 0 {
 				fmt.Println("Vous êtes K.O.")
 				return false
 			}
 		} else {
-			enemyPattern(&g, c, turn)
+			EnemyPattern(&g, c, turn)
 			if c.Hp <= 0 {
 				fmt.Println("Vous êtes K.O.")
 				return false
@@ -317,13 +317,13 @@ func fightBoss(c *Character, xpReward int, creditReward int) bool {
 				fmt.Printf("+%d crédits (total %d)\n", creditReward, c.Money)
 				return true
 			}
-			enemyPattern(&g, c, turn)
+			EnemyPattern(&g, c, turn)
 			if c.Hp <= 0 {
 				fmt.Println("Vous êtes K.O.")
 				return false
 			}
 		} else {
-			enemyPattern(&g, c, turn)
+			EnemyPattern(&g, c, turn)
 			if c.Hp <= 0 {
 				fmt.Println("Vous êtes K.O.")
 				return false
@@ -341,7 +341,7 @@ func fightBoss(c *Character, xpReward int, creditReward int) bool {
 	}
 }
 
-func storyMode(c *Character) {
+func StoryMode(c *Character) {
 	if c.StoryProgress > len(chapters) {
 		fmt.Println("Histoire déjà terminée. Retour au menu.")
 		return
