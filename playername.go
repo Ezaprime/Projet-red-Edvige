@@ -15,7 +15,7 @@ func AskPlayerName() string {
 		fmt.Print("Entre ton nom (2–16 caractères) : ")
 		name, _ := reader.ReadString('\n')
 		name = strings.TrimSpace(name)
-		name = strings.Join(strings.Fields(name), " ") // normalise espaces
+		name = strings.Join(strings.Fields(name), " ") 
 		if n := utf8.RuneCountInString(name); n >= 2 && n <= 16 {
 			fmt.Println("Nom choisi :", name)
 			return name

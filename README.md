@@ -3,7 +3,7 @@ Cyberynov ⊂(◉‿◉)つ
 Bienvenue sur Cyberynov — un RPG console en Go (Golang) dans un univers cyberpunk.
 Crée ton héros, gère ta sacoche (inventaire), combats au tour par tour, achète au marchand, fabrique chez le forgeron et termine le mode Histoire. Le boss final ne tombe qu’avec l’arme Puff (très chère, niveau 3+).
 
-1) Projet Golang 🧩
+1) Projet Golang 
 
 Exécutable CLI écrit en Go (≥ 1.20).
 
@@ -13,7 +13,7 @@ Données de gameplay (prix, dégâts, recettes, coûts de mana) centralisées da
 
 Construction incrémentale via Git (petites branches/PR, main compilable en continu).
 
-2) Fonctionnalités 🕹️
+2) Fonctionnalités 
 
 Sacoche (inventaire) : Stimpak, batteries de mana, puces de sorts, armes, armures, upgrades de capacité.
 
@@ -29,7 +29,7 @@ Progression : XP → level up (+PV base, +Attaque, +Mana). Boule de feu se débl
 
 UX Console : bannière animée au démarrage, couleurs ANSI, barres PV/Mana dégradées, récap de fin de combat.
 
-3) Technologies & Langages 🛠️
+3) Technologies & Langages 
 
 Langage : Go (Golang).
 
@@ -45,7 +45,7 @@ Maps pour prix/dégâts/coûts/recettes.
 
 Passage par pointeur (*Character) pour modifier l’état en place.
 
-4) Utilisation 🚀
+4) Utilisation 
 Prérequis
 
 Go installé : go version (≥ 1.20)
@@ -83,7 +83,7 @@ go build -o cyberynov
 
 Au démarrage : bannière animée “CYBERYNOV” → saisie du nom du joueur → menu principal.
 
-5) Démo du jeu / Présentation 🎬
+5) Démo du jeu / Présentation 
 
 Menu principal
 
@@ -113,16 +113,16 @@ Objectif
 
 Atteindre niveau ≥ 3 + assez de crédits → acheter/équiper Puff → battre le boss (seule action efficace sur lui).
 
-Version 💾
+Version 
 
 Go : 1.22.x (compatible ≥ 1.20)
 
 OS : Linux / macOS / Windows (terminal ANSI recommandé)
 
-Authors ✍️
+Authors 
 
-Kerem  — gameplay, menus, combats
+Kerem  — character , playername , types , main
 
-Taali — sacoche, marchand/forge, histoire
+Taali — ui , items , combat , merchant , forge
 
 Collaboration via GitHub : petites branches, PR régulières, merge sur main.

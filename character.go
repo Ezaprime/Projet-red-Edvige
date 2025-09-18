@@ -365,7 +365,6 @@ func equipItem(c *Character, item string) {
 		old = c.Equip.Weapon
 		c.Equip.Weapon = item
 	default:
-		// Item non équipable
 		return
 	}
 	if old != "" {
