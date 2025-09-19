@@ -123,6 +123,6 @@ Authors
 
 Kerem  — character , playername , types , main
 
-Taali — ui , items , combat , merchant , forge.
+Taali —  ui , items , combat , merchant , forge.
 
 Collaboration via GitHub : petites branches, PR régulières, merge sur main.
