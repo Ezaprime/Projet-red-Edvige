@@ -12,9 +12,7 @@ import (
 func infoScreen(c *piscine.Character) {
 	for {
 		fmt.Println("\n=== Informations du personnage ===")
-
 		piscine.DisplayInfo(*c)
-
 		fmt.Println("0) Retour")
 		var ch int
 		fmt.Print("> ")
@@ -24,7 +22,6 @@ func infoScreen(c *piscine.Character) {
 		}
 	}
 }
-
 
 func askPlayerName() string {
 	reader := bufio.NewReader(os.Stdin)
@@ -42,15 +39,55 @@ func askPlayerName() string {
 	}
 }
 
+func askPlayerClass() string {
+	for {
+		fmt.Println("\n=== Choix de la classe ===")
+		fmt.Println("1) Lacoste TN")
+		fmt.Println("2) cocojojo")
+		fmt.Println("3) fou du bus")
+		fmt.Print("> ")
+
+		var choice int
+		fmt.Scanln(&choice)
+
+		switch choice {
+		case 1:
+			return "Lacoste TN"
+		case 2:
+			return "cocojojo"
+		case 3:
+			return "fou du bus"
+		default:
+			fmt.Println("Choix invalide. Réessaie.")
+		}
+	}
+}
+
+func startingBuildForClass(class string) (level, hpMax, hp int, inv []string) {
+	switch class {
+	case "Lacoste TN":
+		return 1, 100, 40, []string{piscine.ItemStimpak, piscine.ItemToxVial}
+	case "cocojojo":
+		return 1, 95, 95, []string{piscine.ItemToxVial, piscine.ItemManaBattery}
+	case "fou du bus":
+		return 1, 140, 140, []string{piscine.ItemStimpak, piscine.ItemStimpak}
+	default:
+		return 1, 100, 40, []string{piscine.ItemStimpak, piscine.ItemToxVial}
+	}
+}
+
 func main() {
 	piscine.SimpleBanner()
 	name := askPlayerName()
 
+	class := askPlayerClass()
+	level, hpMax, hp, inv := startingBuildForClass(class)
+
 	c := piscine.InitCharacter(
 		name,
-		"Lacoste TN",
-		1, 100, 40,
-		[]string{piscine.ItemStimpak, piscine.ItemToxVial},
+		class,
+		level, hpMax, hp,
+		inv,
 	)
 
 	for {
@@ -68,7 +105,7 @@ func main() {
 
 		switch choice {
 		case 1:
-			infoScreen(&c) 
+			infoScreen(&c)
 		case 2:
 			piscine.AccessInventory(&c)
 		case 3:
