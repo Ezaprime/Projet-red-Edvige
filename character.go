@@ -12,7 +12,7 @@ func InitCharacter(name string, class string, level int, hpMax int, hp int, inv 
 
 	return Character{
 
-		Name: name,
+		Name: name, 
 
 		Class: class,
 

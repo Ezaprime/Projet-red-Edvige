@@ -43,7 +43,7 @@ func askPlayerName() string {
 }
 
 func main() {
-	piscine.AnimateNeonBanner()
+	piscine.SimpleBanner()
 	name := askPlayerName()
 
 	c := piscine.InitCharacter(
